@@ -1,0 +1,61 @@
+<h1>
+    Block Details
+</h1>
+
+
+<style>
+    .objectValue {
+        word-wrap: break-word;
+    }
+
+    table.contained {
+        table-layout: fixed;
+    }
+</style>
+
+
+<table class="contained">
+    <thead>
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#each block}}
+        <tr>
+            <td class="objectKey">{{@key}}</td>
+            <td class="objectValue">{{this}}</td>
+        </tr>
+
+    {{/each}}
+    <tr>List of Transactions</tr>
+    {{#each block.transactions}}
+        <tr>
+            <td class="objectKey">{{@key}}</td>
+            <td class="objectValue">{{this}}</td>
+        </tr>
+
+    {{/each}}
+    </tbody>
+
+</table>
+<table class="contained">
+    <thead>
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tr>List of Transactions</tr>
+    {{#each block.transactions}}
+        <tr>
+            <td class="objectKey">{{@key}}</td>
+            <td class="objectValue">{{this}}</td>
+        </tr>
+
+    {{/each}}
+    </tbody>
+
+</table>

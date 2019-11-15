@@ -1,0 +1,24 @@
+<h1>List of transactions:</h1>
+
+<table class="contained">
+    <thead>
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    {{#each transaction}}
+        <tr>
+            <td class="objectKey">{{@key}}</td>
+            <td class="objectValue">{{this}}</td>
+        </tr>
+
+    {{/each}}
+
+    </tbody>
+
+</table>

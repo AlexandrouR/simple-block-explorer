@@ -1,0 +1,15 @@
+<h1>
+    Block List:
+</h1>
+
+
+
+{{#each blocks}}
+    <p>
+        <a href="/block/{{this}}">Go to block: {{this}}</a>
+    </p>
+{{/each}}
+
+
+<a href="/{{{nextPage}}}">Go to page: {{{nextPage}}}</a>
+<a href="/{{{prevPage}}}">Go to page: {{{prevPage }}}</a>
