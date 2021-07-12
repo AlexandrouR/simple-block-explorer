@@ -18,5 +18,5 @@ jobs:
             const version = process.env.GITHUB_REF.substring(8,process.env.GITHUB_REF -1)
             return version
       - name: Get result
-        run: echo "${{release_name.set-result.outputs.result}}"
+        run: echo "${{steps.release_name.outputs.result}}"
 
