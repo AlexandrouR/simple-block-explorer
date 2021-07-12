@@ -1,7 +1,6 @@
 const bcUtils = require('../blockchainUtils');
 const express = require("express");
 const router = express.Router();
-
 function* range(start, end) {
     for (let i = start; i <= end; i++) {
         yield i;
