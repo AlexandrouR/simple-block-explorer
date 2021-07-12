@@ -15,5 +15,6 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            const version = $GITHUB_REF.substring(8,$GITHUB_REF.length -1)
+
+            const version = process.env.GITHUB_REF.substring(8,process.env.GITHUB_REF -1)
           value: version
