@@ -19,8 +19,8 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          echo "action_state=${{steps.release_name.outputs.result}}" >> $GITHUB_ENV
+          echo "VERSION=${{steps.release_name.outputs.result}}" >> $GITHUB_ENV
       - name: Use the s
         id: step_three
         run: |
-          echo "${{ env.action_state }}" # This will output 'yellow'
+          echo "${{ env.VERSION }}" # This will output 'yellow'
