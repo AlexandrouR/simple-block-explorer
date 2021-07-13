@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches: ['release/**' ]
+    branches: [ 'release/**' ]
 
 jobs:
   release:
@@ -15,11 +15,9 @@ jobs:
           script: |
             const branch_name = process.env.GITHUB_REF
             const web3j_release_version = branch_name.substring(branch_name.lastIndexOf('/') +1 ,branch_name.length  )
-            echo "action_state=yellow" >> $GITHUB_ENV
+            process.env.VERSION = web3j_release_version
             return web3j_release_version
-
-      - name: Get result
-        run: echo "${{ env.action_state }}" # This will output 'yellow'
-
-
-
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.VERSION }}" # This will output 'yellow'
