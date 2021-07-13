@@ -15,12 +15,11 @@ jobs:
           script: |
             const branch_name = process.env.GITHUB_REF
             const web3j_release_version = branch_name.substring(branch_name.lastIndexOf('/') +1 ,branch_name.length  )
-            process.env.VERSION = web3j_release_version
+            echo "action_state=yellow" >> $GITHUB_ENV
             return web3j_release_version
-        env:
-          VERSION: ${{ steps.release_name.outputs.result }}
-          
+
       - name: Get result
-        run: echo "Hello ${{ VERSION }}"
+        run: echo "${{ env.action_state }}" # This will output 'yellow'
+
 
 
