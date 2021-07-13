@@ -17,9 +17,8 @@ jobs:
             const web3j_release_version = branch_name.substring(branch_name.lastIndexOf('/') +1 ,branch_name.length  )
             process.env.VERSION = web3j_release_version
             return web3j_release_version
-        run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
       - name: Use the value
         id: step_two
         run: |
+          echo "action_state=${{steps.release_name.outputs.result}}" >> $GITHUB_ENV
           echo "${{ env.action_state }}" # This will output 'yellow'
