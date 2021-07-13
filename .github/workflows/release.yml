@@ -21,6 +21,6 @@ jobs:
           VERSION: ${{ steps.release_name.outputs.result }}
           
       - name: Get result
-        run: echo "Hello $VERSION"
+        run: echo "Hello ${{ VERSION }}"
 
 
