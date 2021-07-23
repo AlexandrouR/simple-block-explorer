@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches: ['release/**' ]
+    branches: [ 'release/**' ]
 
 jobs:
   release:
@@ -19,8 +19,20 @@ jobs:
             return web3j_release_version
         env:
           VERSION: ${{ steps.release_name.outputs.result }}
-          
+
       - name: Get result
         run: echo "Hello ${{ VERSION }}"
 
+  git-release:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Release
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: v+${{ steps.release_name.outputs.result }}
+          prerelease: false
+          files: |
+            "web3j-"+${{ steps.release_name.outputs.result }}.*
 
