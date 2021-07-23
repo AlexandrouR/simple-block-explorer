@@ -26,6 +26,7 @@ jobs:
   git-release:
     needs: release
     runs-on: ubuntu-latest
+    run: 
     steps:
       - name: Github Release
       - uses: marvinpinto/action-automatic-releases@latest
