@@ -19,10 +19,6 @@ jobs:
             return web3j_release_version
         env:
           VERSION: ${{ steps.release_name.outputs.result }}
-
-      - name: Get result
-        run: echo "Hello ${{ VERSION }}"
-
   git-release:
     needs: release
     runs-on: ubuntu-latest
