@@ -12,13 +12,12 @@ jobs:
         id: release_name
         uses: actions/github-script@v4
         with:
+          result-encoding: string
           script: |
             const branch_name = process.env.GITHUB_REF
             const web3j_release_version = branch_name.substring(branch_name.lastIndexOf('/') +1 ,branch_name.length  )
             process.env.VERSION = web3j_release_version
             return web3j_release_version
-        env:
-          VERSION: ${{ steps.release_name.outputs.result }}
   git-release:
     needs: release
     runs-on: ubuntu-latest
