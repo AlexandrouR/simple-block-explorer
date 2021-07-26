@@ -27,7 +27,7 @@ jobs:
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          automatic_release_tag: 'v${{ steps.release_name.outputs.result }}}' 
+          automatic_release_tag: 'v${{ steps.release_name.outputs.result }}' 
           prerelease: false
           files: |
             "web3j-"+${{ steps.release_name.outputs.result }}.*
